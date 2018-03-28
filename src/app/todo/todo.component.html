@@ -1,3 +1,24 @@
-<p>
-  todo works!
-</p>
+<div class="jumbotron" style="margin-top: 10px;padding: 45px 0">
+  <h4 class="text-center">Internship and Co-op todoList</h4>
+</div>
+
+<div class="input-group">
+  <input type="text" style="margin: 0 5px 0 5px" class="form-control" #itemTitle>
+  <div class="input-group-addon hover-cursor" (click)="addItem(itemTitle)">
+    <i class="fa fa-plus-circle fa-2x"></i>
+  </div>
+</div>
+
+<div style="margin: 10px 30px 0 5px;">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of todoListArray">
+      <span class="hover-cursor" [class.text-success]="item.isChecked" (click)="updateCheck(item.$key,item.isChecked)">
+        <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+      </span>
+      {{item.title}}
+      <span class="hover-cursor text-danger pull-right" (click)="deleteTask(item.$key)">
+        <i class="fa fa-trash-o fal-lg"></i>
+      </span>
+    </li>
+  </ul>
+</div>
