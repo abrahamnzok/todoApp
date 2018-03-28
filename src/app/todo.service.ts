@@ -23,7 +23,7 @@ export class TodoService {
   }
 
   checkOrUncheckTask($key: string, flag: boolean) {
-    this.todoList.update($key, flag);
+    this.todoList.update($key, {isChecked: flag});
   }
 
   removeTask($key: string) {
