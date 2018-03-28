@@ -20,7 +20,6 @@ export class TodoComponent implements OnInit {
         item.forEach(element => {
           const x = element.payload.toJSON();
           x['$key'] = element.key;
-          console.log(x);
           this.todoListArray.push(x);
         });
         this.todoListArray.sort((a, b) => {
