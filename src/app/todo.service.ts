@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {Todo} from './shared/todo.model';
 
 @Injectable()
 export class TodoService {
@@ -14,12 +15,8 @@ export class TodoService {
   }
 
   setTitle(title: string) {
-    this.todoList.push(
-      {
-        title: title,
-        isChecked: false
-      }
-    );
+    const todo = new Todo(title, false);
+    this.todoList.push(todo);
   }
 
   checkOrUncheckTask($key: string, flag: boolean) {
